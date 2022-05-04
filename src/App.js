@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Habit from './components/Habit';
+import DayScoreBar from './components/DayScoreBar';
+import WeekScoreBar from './components/WeekScoreBar';
+import { habitsObject } from "./files/habitsObject"
+
+
+const habitElements = habitsObject.habits.map(habit => (
+    <Habit
+      id={habit.id}
+      habit={habit.habit}
+      timeout={habit.timeout}
+      type={habit.type}
+      items={habit.items}
+    />
+))
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {habitElements}
+
+      <DayScoreBar 
+        score={habitsObject.score.day}
+        scoreGoal={habitsObject.score.dayGoal}
+      />
+
+      <WeekScoreBar 
+        score={habitsObject.score.week}
+        scoreGoal={habitsObject.score.weekGoal}
+      />
+      
     </div>
   );
 }

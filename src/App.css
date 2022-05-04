@@ -1,38 +1,102 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.habit--container {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  justify-self: center;
 }
 
-.App-link {
-  color: #61dafb;
+.habit--reset-time {
+  display: flex;
+  position: absolute;
+  font-size: 10px;
+  font-weight: normal;
+  color: #545454;
+  margin: 0px;
+  left: 8px;
+  top: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.habit--title {
+  font-size: 15px;
+  align-self: center;
+  margin: 0px;
+  margin-top: 6px;
+}
+
+.habit--checklist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100px;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.checklist--item {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.checkbox {
+  height: 20px;
+  width: 20px;
+  margin: 2px;
+}
+
+.label {
+  margin-left: 5px;
+}
+
+/* Scorebar */
+
+.scorebar--container {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  height: 33px;
+  background-color: #C4C4C4;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.scorebar--filled {
+  height: 33px;
+  z-index: 3;
+  position: absolute;
+}
+
+.day {
+  background-color: #2B8C23;
+}
+
+.week {
+  background-color: #3A24C2;
+}
+
+.scorebar--text {
+  font-size: 6px;
+  text-align: center;
+  margin: 0px;
+  margin-top: 5px;
+  position: relative;
+  z-index: 10;
+}
+
+.scorebar--score {
+  font-size: 15px;
+  text-align: center;
+  margin: 0px;
+  position: relative;
+  z-index: 5;
 }
