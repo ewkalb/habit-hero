@@ -1,11 +1,12 @@
-export default function ChecklistItem({ id, label, complete}) {
+export default function ChecklistItem({ id, label, complete, handleChange}) {
     return(
         <div className='checklist--item'>
             <input
                 className="checkbox"
                 id={id}
                 type="checkbox"
-                checked={complete}
+                defaultChecked={complete}
+                onChange={handleChange}
             />
             <label className='label' htmlFor={id}>{label}</label>
         </div>

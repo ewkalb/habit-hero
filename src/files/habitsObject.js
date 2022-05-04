@@ -8,7 +8,7 @@ export const habitsObject = {
     },
 
     habits: [ {
-            id: 1,
+            habitId: 1,
             habit: 'Vitamins',
             timeout: 24,
             type: 'checklist',
@@ -26,7 +26,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 2,
+            habitId: 2,
             habit: 'exercise',
             timeout: 72,
             type: 'checklist',
@@ -59,7 +59,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 3,
+            habitId: 3,
             habit: 'meditation',
             timeout: 24,
             type: 'checklist',
@@ -77,7 +77,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 4,
+            habitId: 4,
             habit: 'diet',
             timeout: 24,
             type: 'checklist',
@@ -105,7 +105,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 5,
+            habitId: 5,
             habit: 'sleep',
             timeout: 24,
             type: 'checklist',
@@ -123,7 +123,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 6,
+            habitId: 6,
             habit: 'water',
             timeout: 24,
             type: 'checklist',
@@ -151,7 +151,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 7,
+            habitId: 7,
             habit: 'Garden',
             timeout: 24,
             type: 'checklist',
@@ -179,7 +179,7 @@ export const habitsObject = {
             ]
         },
         {
-            id: 8,
+            habitId: 8,
             habit: 'Chores',
             timeout: 72,
             type: 'checklist',

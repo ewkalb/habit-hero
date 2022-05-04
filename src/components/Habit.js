@@ -1,36 +1,64 @@
+import React, { useState } from 'react'
+
 import ChecklistItem from "./ChecklistItem"
 
-export default function Habit({id, habit, timeout, type, items}) {
+export default function Habit({habitId, habit, timeout, type, items, handleChange}) {
 
 let backgroundColor = ""
 
+const [thisHabitState, setThisHabitState] = useState(
+    {
+    habitId: habitId,
+    habit: habit,
+    timeout: timeout,
+    type: type,
+    items: items
+    }
+)
+
 function chooseBackgroundColor() {
     
-    if (id === 1) {
+    if (habitId === 1) {
         backgroundColor = '#CD0101'
-    } else if (id === 2) {
+    } else if (habitId === 2) {
         backgroundColor = '#EDEF7C'
-    } else if (id === 3) {
+    } else if (habitId === 3) {
         backgroundColor = '#4EE06E'
-    } else if (id === 4) {
+    } else if (habitId === 4) {
         backgroundColor = '#FF5139'
-    } else if (id === 5) {
+    } else if (habitId === 5) {
         backgroundColor = '#CB76FF'
-    } else if (id === 6) {
+    } else if (habitId === 6) {
         backgroundColor = '#9B99FF'
-    } else if (id === 7) {
+    } else if (habitId === 7) {
         backgroundColor = '#41C036'
-    } else if (id === 8) {
+    } else if (habitId === 8) {
         backgroundColor = '#0ADEC5'
     } 
 }
 
+// function handleHabitChange(event) {
+    
+//     const {id} = event.target
+    
+//     setThisHabitState(prevHabitState => {
+
+//     prevHabitState.items[id - 1].complete = prevHabitState.items[id - 1].complete ? false : true;
+
+//       return{
+//         prevHabitState
+//       }
+//     })
+//     console.log(thisHabitState)
+// }
 
 const checklist = items.map(item => (
         <ChecklistItem 
+            key={item.id}
             id={item.id}
             label={item.label}
             complete={item.complete}
+            handleChange={handleChange}
         />
 ))
 
@@ -42,7 +70,7 @@ const checklist = items.map(item => (
             <h3 className='habit--reset-time'>{timeout}H</h3>
             <h2 className='habit--title'>{habit.toUpperCase()}</h2>
             
-            <form className='habit--checklist-container'>
+            <form className='habit--checklist-container' id={habitId}>
                 {checklist}
             </form>
         </div>
