@@ -1,5 +1,6 @@
 export const habitsObject = {
     user: "eric",
+    
     score: {
         day: 0,
         dayGoal: 200,
