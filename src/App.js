@@ -3,38 +3,71 @@ import './App.css';
 import Habit from './components/Habit';
 import DayScoreBar from './components/DayScoreBar';
 import WeekScoreBar from './components/WeekScoreBar';
+
 import { habitsObject } from "./files/habitsObject"
 
 
 function App() {
 
+
+
+
 const [habitState, setHabitState] = useState(
   {
     habits: habitsObject.habits,
+    score: {
+      dayScore: habitsObject.score.day,
+      dayGoal: habitsObject.score.dayGoal,
+      weekScore: habitsObject.score.week,
+      weekGoal: habitsObject.score.weekGoal,
+      lastDay: habitsObject.score.lastDay
+    }
   }
 )
 
-const [score, setScore] = useState(
-  {
-    dayScore: habitsObject.score.day,
-    dayGoal: habitsObject.score.dayGoal,
-    weekScore: habitsObject.score.week,
-    weekGoal: habitsObject.score.weekGoal,
-    lastDay: habitsObject.score.lastDay
-  }
-)
+
+
+// RETRIEVE FROM LOCALSTORAGE, RIGHT IDEA, BUT INFINITE LOOP
+
+
+// React.useEffect(JSON.parse(localStorage.getItem("eric")), [])
+
+
 function handleChange(event) {
+  const {checked} = event.target
   const habitsIndex = event.target.parentElement.parentElement.id - 1
   const itemIndex = event.target.id - 1
-  setHabitState(prevHabitState => {
-    const changedBox = prevHabitState.habits[habitsIndex].items[itemIndex].complete
-    prevHabitState.habits[habitsIndex].items[itemIndex].complete = !changedBox;
-    return {
-      ...prevHabitState
 
+  ////////FIX LABEL BUG
+  ////////RETRIEVE OBJECT FROM LOCALSTORAGE CONDITIONALLY (IF EXISTS)
+  ////////RESET BUTTON
+  ////////RESET AFTER TIMEOUT HOURS
+  ////////NETLIFY
+  ////////FORM FOR BUILDING NEW HABIT OBJECTS
+  ////////LOGIN + RETRIEVE DIFFERENT OBJECTS
+
+
+  setHabitState((prevHabitState) => {
+    let newState = JSON.parse(JSON.stringify(prevHabitState))
+    newState.habits[habitsIndex].items[itemIndex].complete = checked;
+    return {
+      ...newState,
     }
     })
-    console.log(habitState)
+
+  setHabitState((prevHabitState) => {
+    const dayScore = prevHabitState.score.dayScore
+    const weekScore = prevHabitState.score.weekScore
+    let newState = JSON.parse(JSON.stringify(prevHabitState))
+    newState.score.dayScore = checked ? dayScore + 10 : dayScore - 10
+    newState.score.weekScore = checked ? weekScore + 10 : weekScore - 10
+    return {
+      ...newState
+    }
+  })
+
+  localStorage.setItem("eric", JSON.stringify(habitState))
+
 }
 
 const habitElements = habitState.habits.map(habit => (
@@ -56,13 +89,13 @@ const habitElements = habitState.habits.map(habit => (
       {habitElements}
 
       <DayScoreBar 
-        score={habitsObject.score.day}
-        scoreGoal={habitsObject.score.dayGoal}
+        score={habitState.score.dayScore}
+        scoreGoal={habitState.score.dayGoal}
       />
 
       <WeekScoreBar 
-        score={habitsObject.score.week}
-        scoreGoal={habitsObject.score.weekGoal}
+        score={habitState.score.weekScore}
+        scoreGoal={habitState.score.weekGoal}
       />
 
     </div>

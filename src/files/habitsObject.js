@@ -1,9 +1,9 @@
 export const habitsObject = {
     score: {
-        day: 50,
+        day: 0,
         dayGoal: 200,
-        week: 400,
-        weekGoal: 1000,
+        week: 0,
+        weekGoal: 1500,
         lastDay: '',
     },
 
