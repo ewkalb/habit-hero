@@ -1,6 +1,6 @@
 export default function ChecklistItem({ id, label, complete, handleChange}) {
     return(
-        <div className='checklist--item'>
+        <div className='checklist--item' >
             <input
                 className="checkbox"
                 id={id}
@@ -8,7 +8,7 @@ export default function ChecklistItem({ id, label, complete, handleChange}) {
                 defaultChecked={complete}
                 onChange={handleChange}
             />
-                <label className='label' htmlFor={id} style={{textDecoration: complete ? "line-through" : "none", color: complete && "#6e6e6e"}}>{label}</label>
+                <label className='label' htmlFor={id} style={{textDecoration: complete && "line-through", color: complete && "#6e6e6e"}}>{label}</label>
         </div>
     )
 }

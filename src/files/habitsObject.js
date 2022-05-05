@@ -1,16 +1,18 @@
 export const habitsObject = {
+    user: "eric",
     score: {
         day: 0,
         dayGoal: 200,
         week: 0,
         weekGoal: 1500,
-        lastDay: '',
+        firstDay: '',
     },
 
     habits: [ {
             habitId: 1,
             habit: 'Vitamins',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -29,6 +31,7 @@ export const habitsObject = {
             habitId: 2,
             habit: 'exercise',
             timeout: 72,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -62,6 +65,7 @@ export const habitsObject = {
             habitId: 3,
             habit: 'meditation',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -80,6 +84,7 @@ export const habitsObject = {
             habitId: 4,
             habit: 'diet',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -108,6 +113,7 @@ export const habitsObject = {
             habitId: 5,
             habit: 'sleep',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -126,6 +132,7 @@ export const habitsObject = {
             habitId: 6,
             habit: 'water',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -154,6 +161,7 @@ export const habitsObject = {
             habitId: 7,
             habit: 'Garden',
             timeout: 24,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {
@@ -182,6 +190,7 @@ export const habitsObject = {
             habitId: 8,
             habit: 'Chores',
             timeout: 72,
+            firstDay: '',
             type: 'checklist',
             items:[
                 {

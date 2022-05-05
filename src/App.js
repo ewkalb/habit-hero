@@ -10,8 +10,9 @@ import { habitsObject } from "./files/habitsObject"
 function App() {
 
   const [habitState, setHabitState] = useState(() => {
-    const saved = JSON.parse(localStorage.getItem("eric"))
+    const saved = JSON.parse(localStorage.getItem(habitsObject.user))
     return saved || {
+      user: habitsObject.user,
       habits: habitsObject.habits,
       score: {
       dayScore: habitsObject.score.day,
@@ -58,7 +59,7 @@ function handleChange(event) {
 }
 
   useEffect(() => {
-    localStorage.setItem("eric", JSON.stringify(habitState))
+    localStorage.setItem(habitState.user, JSON.stringify(habitState))
 
   }, [habitState]);
 

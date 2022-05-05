@@ -36,22 +36,6 @@ function chooseBackgroundColor() {
         backgroundColor = '#0ADEC5'
     } 
 }
-
-// function handleHabitChange(event) {
-    
-//     const {id} = event.target
-    
-//     setThisHabitState(prevHabitState => {
-
-//     prevHabitState.items[id - 1].complete = prevHabitState.items[id - 1].complete ? false : true;
-
-//       return{
-//         prevHabitState
-//       }
-//     })
-//     console.log(thisHabitState)
-// }
-
 const checklist = items.map(item => (
         <ChecklistItem 
             key={item.id}
