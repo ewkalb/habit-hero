@@ -8,7 +8,7 @@ export default function ChecklistItem({ id, label, complete, handleChange}) {
                 defaultChecked={complete}
                 onChange={handleChange}
             />
-            <label className='label' htmlFor={id}>{label}</label>
+                <label className='label' htmlFor={id} style={{textDecoration: complete ? "line-through" : "none", color: complete && "#6e6e6e"}}>{label}</label>
         </div>
     )
 }

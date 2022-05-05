@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import Habit from './components/Habit';
 import DayScoreBar from './components/DayScoreBar';
@@ -9,29 +9,19 @@ import { habitsObject } from "./files/habitsObject"
 
 function App() {
 
-
-
-
-const [habitState, setHabitState] = useState(
-  {
-    habits: habitsObject.habits,
-    score: {
+  const [habitState, setHabitState] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("eric"))
+    return saved || {
+      habits: habitsObject.habits,
+      score: {
       dayScore: habitsObject.score.day,
       dayGoal: habitsObject.score.dayGoal,
       weekScore: habitsObject.score.week,
       weekGoal: habitsObject.score.weekGoal,
       lastDay: habitsObject.score.lastDay
     }
-  }
-)
-
-
-
-// RETRIEVE FROM LOCALSTORAGE, RIGHT IDEA, BUT INFINITE LOOP
-
-
-// React.useEffect(JSON.parse(localStorage.getItem("eric")), [])
-
+    }
+  })
 
 function handleChange(event) {
   const {checked} = event.target
@@ -39,12 +29,12 @@ function handleChange(event) {
   const itemIndex = event.target.id - 1
 
   ////////FIX LABEL BUG
-  ////////RETRIEVE OBJECT FROM LOCALSTORAGE CONDITIONALLY (IF EXISTS)
   ////////RESET BUTTON
   ////////RESET AFTER TIMEOUT HOURS
   ////////NETLIFY
   ////////FORM FOR BUILDING NEW HABIT OBJECTS
   ////////LOGIN + RETRIEVE DIFFERENT OBJECTS
+
 
 
   setHabitState((prevHabitState) => {
@@ -65,10 +55,12 @@ function handleChange(event) {
       ...newState
     }
   })
-
-  localStorage.setItem("eric", JSON.stringify(habitState))
-
 }
+
+  useEffect(() => {
+    localStorage.setItem("eric", JSON.stringify(habitState))
+
+  }, [habitState]);
 
 const habitElements = habitState.habits.map(habit => (
   <Habit
