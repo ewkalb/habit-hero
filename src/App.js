@@ -3,6 +3,7 @@ import './App.css';
 import Habit from './components/Habit';
 import DayScoreBar from './components/DayScoreBar';
 import WeekScoreBar from './components/WeekScoreBar';
+import NewHabit from './components/NewHabit'
 
 import { habitsObject } from "./files/habitsObject"
 
@@ -10,8 +11,8 @@ import { habitsObject } from "./files/habitsObject"
 ////////////////////////TASKS/////////////////////////////////////
   ////////RESET AFTER ONE DAY
   ////////RESET AFTER TIMEOUT HOURS
-  ////////NETLIFY
   ////////FORM FOR BUILDING NEW HABIT OBJECTS
+  ////////"DEFAULT" ADD HABIT BUTTON
   ////////REACT ROUTER TO PULL UP FORM PAGE + NEW USER PAGE
   ////////LOGIN + RETRIEVE DIFFERENT OBJECTS
   ////////CLICKY LABELS
@@ -116,6 +117,8 @@ const habitElements = habitState.habits.map(habit => (
 
   return (
     <div className="App">
+
+      <NewHabit />
 
       {habitElements}
 

@@ -3,6 +3,29 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.newhabit {
+  background-color: rgb(168, 168, 168);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.newhabit--text {
+  margin: 0;
+}
+
+.newhabit--plus {
+  margin: 0;
+  font-size: 50px;
+}
+
+.top {
+  margin-top: 10px;
+}
+
+.bottom {
+  margin-bottom: 10px;
+}
+
 .habit--container {
   width: 150px;
   height: 150px;
@@ -12,6 +35,7 @@
   flex-direction: column;
   position: relative;
   justify-self: center;
+  color: black;
 }
 
 .habit--reset-time {
