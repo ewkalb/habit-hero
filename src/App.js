@@ -75,15 +75,6 @@ function handleChange(event) {
   const habitsIndex = event.target.parentElement.parentElement.id - 1
   const itemIndex = event.target.id - 1
 
-  if (hasOneDayPassed()) {
-    setHabitState(() => {
-      let newState = JSON.parse(JSON.stringify(habitsObject))
-      newState.date = new Date().toLocaleDateString();
-      return {...newState}
-    })
-    return
-  }
-
   setHabitState((prevHabitState) => {
     let newState = JSON.parse(JSON.stringify(prevHabitState))
     newState.habits[habitsIndex].items[itemIndex].complete = checked;
