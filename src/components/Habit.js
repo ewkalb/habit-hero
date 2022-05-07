@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
+
 
 import ChecklistItem from "./ChecklistItem"
 
-export default function Habit({habitId, habit, timeout, type, items, handleChange}) {
+export default function Habit({habitId, habit, timeout, items, handleChange}) {
 
 let backgroundColor = ""
-
-const [thisHabitState, setThisHabitState] = useState(
-    {
-    habitId: habitId,
-    habit: habit,
-    timeout: timeout,
-    type: type,
-    items: items
-    }
-)
-
 function chooseBackgroundColor() {
     
     if (habitId === 1) {

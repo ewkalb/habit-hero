@@ -38,16 +38,16 @@ function App() {
 
   ///not quite updating correctly yet, keep playing with it
 
-function hasOneDayPassed() {
-  var date = new Date().toLocaleDateString();
-  console.log(date)
-  let storedDate = JSON.parse(localStorage.eric).date
+// function hasOneDayPassed() {
+//   var date = new Date().toLocaleDateString();
+//   console.log(date)
+//   let storedDate = JSON.parse(localStorage.eric).date
 
-  if (storedDate === date)
-    return false;
-  return true
+//   if (storedDate === date)
+//     return false;
+//   return true
 
-}
+// }
 
 function resetDay() {
   const keepWeekScore = habitState.score.weekScore;

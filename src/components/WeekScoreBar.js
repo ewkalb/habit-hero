@@ -1,7 +1,6 @@
 export default function WeekScoreBar({score, scoreGoal, duration}) {
 
     const width = (score / scoreGoal * 100).toString() + '%'
-    const fontColor = (score / scoreGoal) > .5 ? 'white' : 'red'
 
     return (
         <div className="scorebar--container">
