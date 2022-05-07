@@ -103,14 +103,12 @@
 }
 
 .reset {
-  grid-column-start: 1;
-  grid-column-end: span 2; 
+   
   color: white;
-  margin-top: 20px;
-  margin-right:50px;
-  margin-left: 50px;
+  margin: 20px;
   height: 40px;
   font-family: Jost; 
+  border-radius: 10px;
 }
 
 .day {
