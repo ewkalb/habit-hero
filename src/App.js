@@ -7,40 +7,87 @@ import WeekScoreBar from './components/WeekScoreBar';
 import { habitsObject } from "./files/habitsObject"
 
 
+////////////////////////TASKS/////////////////////////////////////
+  ////////RESET AFTER ONE DAY
+  ////////RESET AFTER TIMEOUT HOURS
+  ////////NETLIFY
+  ////////FORM FOR BUILDING NEW HABIT OBJECTS
+  ////////REACT ROUTER TO PULL UP FORM PAGE + NEW USER PAGE
+  ////////LOGIN + RETRIEVE DIFFERENT OBJECTS
+  ////////CLICKY LABELS
+//////////////////////////////////////////////////////////////////
+
 function App() {
 
   const [habitState, setHabitState] = useState(() => {
     const saved = JSON.parse(localStorage.getItem(habitsObject.user))
     return saved || {
       user: habitsObject.user,
+      date: new Date().toLocaleDateString(),
       habits: habitsObject.habits,
       score: {
-      dayScore: habitsObject.score.day,
+      dayScore: habitsObject.score.dayScore,
       dayGoal: habitsObject.score.dayGoal,
-      weekScore: habitsObject.score.week,
+      weekScore: habitsObject.score.weekScore,
       weekGoal: habitsObject.score.weekGoal,
       lastDay: habitsObject.score.lastDay
     }
     }
   })
 
+
+  ///not quite updating correctly yet, keep playing with it
+
+function hasOneDayPassed() {
+  var date = new Date().toLocaleDateString();
+  console.log(date)
+  let storedDate = JSON.parse(localStorage.eric).date
+
+  if (storedDate === date)
+    return false;
+  return true
+
+}
+
+function resetDay() {
+  const keepWeekScore = habitState.score.weekScore;
+  setHabitState(() => {
+    let newState = JSON.parse(JSON.stringify(habitsObject))
+    newState.date = new Date().toLocaleDateString();
+    newState.score.weekScore = keepWeekScore;
+    return {...newState}
+  })
+  window.location.reload(false);
+}
+
+function resetWeek() {
+  setHabitState(() => {
+    let newState = JSON.parse(JSON.stringify(habitsObject))
+    newState.date = new Date().toLocaleDateString();
+    return {...newState}
+  })
+  window.location.reload(false);
+}
+
+
 function handleChange(event) {
   const {checked} = event.target
   const habitsIndex = event.target.parentElement.parentElement.id - 1
   const itemIndex = event.target.id - 1
 
-  ////////FIX LABEL BUG
-  ////////RESET BUTTON
-  ////////RESET AFTER TIMEOUT HOURS
-  ////////NETLIFY
-  ////////FORM FOR BUILDING NEW HABIT OBJECTS
-  ////////LOGIN + RETRIEVE DIFFERENT OBJECTS
-
-
+  if (hasOneDayPassed()) {
+    setHabitState(() => {
+      let newState = JSON.parse(JSON.stringify(habitsObject))
+      newState.date = new Date().toLocaleDateString();
+      return {...newState}
+    })
+    return
+  }
 
   setHabitState((prevHabitState) => {
     let newState = JSON.parse(JSON.stringify(prevHabitState))
     newState.habits[habitsIndex].items[itemIndex].complete = checked;
+    newState.date = new Date().toLocaleDateString();
     return {
       ...newState,
     }
@@ -90,6 +137,10 @@ const habitElements = habitState.habits.map(habit => (
         score={habitState.score.weekScore}
         scoreGoal={habitState.score.weekGoal}
       />
+
+      <button className='reset day' onClick={resetDay}><b>End Day</b></button>
+      <button className='reset week' onClick={resetWeek}><b>End Week</b></button>
+
 
     </div>
   );

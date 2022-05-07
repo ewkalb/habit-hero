@@ -56,6 +56,7 @@
 
 .label {
   margin-left: 5px;
+  pointer-events: none;
 }
 
 /* Scorebar */
@@ -99,4 +100,31 @@
   margin: 0px;
   position: relative;
   z-index: 5;
+}
+
+.reset {
+  grid-column-start: 1;
+  grid-column-end: span 2; 
+  color: white;
+  margin-top: 20px;
+  margin-right:50px;
+  margin-left: 50px;
+  height: 40px;
+  font-family: Jost; 
+}
+
+.day {
+  background-color: #2B8C23;
+}
+
+.day:hover {
+  background-color: #1e6118;
+}
+
+.week {
+  background-color: #3A24C2;
+}
+
+.week:hover {
+  background-color: #291b87;
 }

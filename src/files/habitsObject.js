@@ -1,10 +1,11 @@
 export const habitsObject = {
     user: "eric",
-    
+    date: "",
+
     score: {
-        day: 0,
+        dayScore: 0,
         dayGoal: 200,
-        week: 0,
+        weekScore: 0,
         weekGoal: 1500,
         firstDay: '',
     },
