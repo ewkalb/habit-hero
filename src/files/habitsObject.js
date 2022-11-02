@@ -31,34 +31,34 @@ export const habitsObject = {
         },
         {
             habitId: 2,
-            habit: 'exercise',
+            habit: 'lifting',
             timeout: 72,
             firstDay: '',
             type: 'checklist',
             items:[
                 {
                 id: 1,
-                label: 'Bench',
+                label: 'Set 1',
                 complete: false
                 },
                 {
                 id: 2,
-                label: 'Incline Bench',
+                label: 'Set 2',
                 complete: false
                 },
                 {
                 id: 3,
-                label: 'Curls',
+                label: 'Set 3',
                 complete: false
                 },
                 {
                 id: 4,
-                label: 'Tricep Ext.',
+                label: 'Set 4',
                 complete: false
                 },
                 {
                 id: 5,
-                label: 'Should. Press',
+                label: 'Set 5',
                 complete: false
                 },
             ]
@@ -120,41 +120,41 @@ export const habitsObject = {
             items:[
                 {
                 id: 1,
-                label: 'Up by 8',
+                label: 'Up by 6',
                 complete: false
                 },
                 {
                 id: 2,
-                label: 'Bed by 12',
+                label: 'Bed by 11',
                 complete: false
                 }
             ]
         },
         {
             habitId: 6,
-            habit: 'water',
+            habit: 'vta',
             timeout: 24,
             firstDay: '',
             type: 'checklist',
             items:[
                 {
                 id: 1,
-                label: '1',
+                label: 'Routine',
                 complete: false
                 },
                 {
                 id: 2,
-                label: '2',
+                label: 'Faulise',
                 complete: false
                 },
                 {
                 id: 3,
-                label: '3',
+                label: 'Recording',
                 complete: false
                 },
                 {
                 id: 4,
-                label: '4',
+                label: 'Editing',
                 complete: false
                 },
             ]
